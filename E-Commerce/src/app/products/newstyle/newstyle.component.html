@@ -1,0 +1,141 @@
+
+
+<section class="section-intro padding-top-sm">
+	<div class="container">
+	<main class="card p-3">
+		<div class="row">
+			<aside class="col-lg-3"
+                    style="overflow:scroll; height:400px;"
+            > 
+				<nav class="nav flex-column nav-pills ">
+				  <a class="nav-link active" aria-current="page" href="#" (click)="getalldata()">Electronics</a>
+				  <a class="nav-link"   
+                     href="#"
+                     *ngFor="let prdc of productcat"
+                     (click)="category($event)">
+                     {{ prdc }}
+                    </a>
+				  
+				</nav>
+			</aside>
+			<div class="col-lg-9">
+				<article class="card-banner" style="height: 440px;background-color:#b9621b;">
+					<!-- <div style="max-width: 500px">
+			        <h2 class="text-white">Great products with <br> best deals </h2>
+			        <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
+			        <a href="#" class="btn btn-warning"> View more </a>
+			        </div> -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="carouselInterval" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" style="margin: 1px auto;">
+                    
+                                        <div class="carousel-item active h-90" data-bs-interval="5000">
+                                            <img src="assets/bg/Electronics2.jpg" class="d-block w-100 " alt="..." height="420px">
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="5000">
+                                            <img src="assets/bg/fashion2.png" class="d-block w-100 " alt="..." height="420px">
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="5000">
+                                            <img src="assets/bg/ecommerce2.jpg" class="d-block w-100 " alt="..." height="420px">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselInterval"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselInterval"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon text-dark" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</article>
+			</div>
+		</div>
+	</main>
+	</div> <!-- container end.// -->
+</section>
+<style>
+    .card.card-product-grid .img-wrap {
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+.card-product-grid .img-wrap {
+    height: 240px;
+}
+.img-wrap {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    display: block;
+    }
+    .card-product-grid .info-wrap {
+    padding: 1rem 1.2rem;
+    overflow: hidden; 
+}
+.btn-light {
+    background-color: #fff;
+    border-color: #dee2e6;
+    color: #212529;}
+    .btn-icon {
+    width: 2.6rem;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+a.title {
+    display: block;
+    text-decoration: none;
+}
+.card-product-grid .title {
+    color: #51585e;
+}
+a.title, .title a, a .title {
+    text-decoration: none;
+}
+[class*=card-product] .price {
+    color: #212529;
+}
+[class*=card-product] .price-old {
+    color: #9da1a7;
+    margin-left: 3px;
+    font-size: 90%;
+}
+</style>
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let product of productalll; index as i">
+        <figure class="card card-product-grid">
+            <a href="#" class="img-wrap"> 
+                <!-- <span class="topbar"> <b class="badge bg-success"> Offer </b> </span> -->
+                <img src="{{ product.images[0] }}"
+                      style="height:90%;object-fit: cover;"> 
+            </a>
+            <figcaption class="info-wrap border-top">
+                <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                <a href="#" class="title text-truncate">{{product.title}}</a>
+                <small class="text-muted">Sizes: S, M, XL</small>
+                <div class="price-wrap">
+                    <span class="price">{{product.price}}</span> <del class="price-old">$20</del>
+                </div> <!-- price-wrap.// -->
+                <button
+              class="btn btn-primary"
+              (click)="goToProductDescription(product.id)"
+            >
+              show decription
+            </button>
+            <button
+              style="margin: 5px"
+              class="btn btn-primary"
+              (click)="cartlocalstorage(product)"
+              *ngIf="show !== i"
+              (click)="display(i)"
+            >
+              Add to cart
+            </button>
+            </figcaption>
+        </figure>
+    </div> <!-- col end.// -->

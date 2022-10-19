@@ -1,0 +1,48 @@
+.tot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    box-shadow: 5px 5px 50px grey;
+    border-radius: 5px;
+    align-items: center;
+    position:static;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn1{
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    height: 50px;
+
+}
+.btn2{
+    border-radius: 5px;
+    border: none;
+    height: 50px;
+    background-color: rgb(255, 145, 0);
+
+}
+.btn1:hover{
+    background-color: rgb(94, 10, 10);
+    transition: 0.5s;
+    color: aliceblue;
+
+}
+.btn2:hover{
+    background-color: rgb(10, 1, 59);
+    transition: 0.5s;
+    color: aliceblue;
+
+}
+.bodyy{
+    border-radius: 5px;
+margin-top: 10px;
+}
+
+.bodyy td{
+margin: 10px;
+
+}

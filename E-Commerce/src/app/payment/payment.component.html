@@ -1,0 +1,271 @@
+<div class="container p-5">
+
+    <section>
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-6 col-xl-8 ">
+                    <h6>1-Choose a shipping address</h6>
+                </div>
+                <div class="card col-lg-6 col-xl-8 ">
+                    <div class="card-body ">
+                        <p data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>add
+                            your address
+                        </p>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Add a new address </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form [formGroup]="userDataForm">
+                                            <div class="form-group">
+                                                <label>Full Name </label>
+                                                <input [class.is-invalid]="userName?.invalid && userName?.touched"
+                                                    formControlName="userName" type="text" class="form-control">
+                                                <div *ngIf="userName?.invalid && userName?.touched">
+                                                    <small class="text-danger"
+                                                        *ngIf="userName?.errors?.['required']">User Name is
+                                                        required
+                                                    </small>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label>Mobile number </label>
+                                                <input type="text"
+                                                    [class.is-invalid]="mobile?.invalid && mobile?.touched"
+                                                    formControlName="mobile" class="form-control">
+                                                <div *ngIf="mobile?.invalid && mobile?.touched">
+                                                    <small class="text-danger" *ngIf="mobile?.errors?.['required']">
+                                                        it is required
+                                                    </small>
+                                                    <small class="text-danger" *ngIf="mobile?.errors?.['pattern']">
+                                                        it must be 11 number 
+                                                    </small>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label>City/Area </label>
+                                                <select class="form-select"
+                                                    [class.is-invalid]="city?.invalid && city?.touched"
+                                                    formControlName="city">
+                                                    <option *ngFor="let city of cities">
+                                                        {{city}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label>Street name </label>
+                                                <input type="text"
+                                                    [class.is-invalid]="Street?.invalid && Street?.touched"
+                                                    formControlName="Street" class="form-control">
+                                                <div *ngIf="Street?.invalid && Street?.touched">
+                                                    <small class="text-danger" *ngIf="Street?.errors?.['required']">
+                                                        it is required
+                                                    </small>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label>Building no </label>
+                                                <input type="text"
+                                                    [class.is-invalid]="Building?.invalid && Building?.touched"
+                                                    formControlName="Building" class="form-control">
+                                                <div *ngIf="Building?.invalid && Building?.touched">
+                                                    <small class="text-danger" *ngIf="Building?.errors?.['required']">
+                                                        it is required
+                                                    </small>
+                                                    <small class="text-danger" *ngIf="Building?.errors?.['pattern']">
+                                                        it must be number 
+                                                    </small>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="modal-footer">
+                                                <input type="submit"
+                                                    [class]="userDataForm.valid ? 'btn btn-success': 'btn btn-danger'"
+                                                    value="Add adress" (click)="addAdress()"
+                                                    [disabled]="!userDataForm.valid">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <!-- 2 -->
+    <div *ngIf="true">
+        <section>
+            <div class="container">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-6 col-xl-8 ">
+                        <h6>2-payment method</h6>
+                    </div>
+                    <div class="card col-lg-6 col-xl-8">
+                        <div class="card-body p-md-2">
+                            <div class="row justify-content-center">
+                                
+                                <fieldset>
+                                    <legend>Choose a payment method</legend>
+                                    <div>
+                                        <input data-bs-toggle="modal" data-bs-target="#paypalModal"
+                                            (change)="onChange($event)" type="radio" id="cridet" name="payment"
+                                            value="cridet">
+                                        <label for="payment">Your credit and debit cards
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input (change)="onChange($event)" type="radio" id="cod" name="payment"
+                                            value="cod">
+                                        <label for="cod">Cash on Delivery</label>
+                                    </div>
+                                   
+                                   
+                                    
+                                    <br>
+                                    <!-- Modal -->
+                                    <!-- <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Add a credit or
+                                                        debit card</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form [formGroup]="cardForm">
+                                                        <div class="form-group">
+                                                            <label class="m-2">card number :</label>
+                                                            <input type="text"
+                                                                [class.is-invalid]="cardNo?.invalid && cardNo?.touched"
+                                                                formControlName="cardNo">
+                                                            <div *ngIf="cardNo?.invalid && cardNo?.touched">
+                                                                <small class="text-danger"
+                                                                    *ngIf="cardNo?.errors?.['required']">it is
+                                                                    required</small>
+                                                                    <small class="text-danger" *ngIf="cardNo?.errors?.['pattern']">
+                                                                        it must be 16 number 
+                                                                    </small>
+                                                            </div>
+                                                        </div>                                                 
+                                                        <br>
+                                                        <div class="form-group">
+                                                            <label>Name on Card : </label>
+                                                            <input
+                                                                [class.is-invalid]="cardName?.invalid && cardName?.touched"
+                                                                formControlName="cardName" type="text">
+                                                            <div *ngIf="cardName?.invalid && cardName?.touched">
+                                                                <small class="text-danger"
+                                                                    *ngIf="cardName?.errors?.['required']">Name is
+                                                                    required</small>
+                                                                <small class="text-danger"
+                                                                    *ngIf="cardName?.errors?.['pattern']">cardName must
+                                                                    contains only capital or small characters.</small>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <div class="modal-footer">
+                                                            <input type="button"
+                                                                class= "btn btn-light"
+                                                                data-bs-dismiss="modal" aria-label="Close" value="cancel">
+                                                            <input type="submit"
+                                                                [class]="cardForm.valid ? 'btn btn-success': 'btn btn-danger'"
+                                                                value="Add your card" class="m-2"
+                                                                [disabled]="!cardForm.valid">
+                                                            </div>
+                                                    </form>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div> -->
+                               
+                               <!-- Button trigger modal -->
+                                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModall">
+                                    Launch demo modal
+                                </button> -->
+                                
+                          
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <br>
+    <!-- 3 -->
+
+    <div *ngIf="true">
+        <section>
+            <div class="container">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-6 col-xl-8">
+                        <h6>3-confirm your order</h6>
+                    </div>
+                    <div *ngIf="isAddress" class="card col-lg-6 col-xl-8">
+                        <div class="card-body">
+                            <p>{{userName?.value}}</p>
+                            <h6>your address :</h6>
+                            <p> {{Building?.value}},{{Street?.value}},{{city?.value}}</p>
+                            <h6>
+                                Order total:
+                                <span style="color:blue ;">{{total +" L.E"}}</span>
+                            </h6>
+                            <input type="button" class="btn btn-success" value="confirm" (click)="confirmed()" />
+                        </div>
+                    </div>
+                    <div *ngIf="isConfirmed" class="alert alert-success text-center col-lg-6 col-xl-8" role="alert">
+                        Order Done successfully
+                     </div>
+                </div>
+            </div>
+        </section>
+      
+    </div>
+</div>
+
+ <br>
+   
+      <!-- Modal -->
+      <div class="modal fade" id="paypalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="paypalModal">Paypal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div #paypal>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- confirm -->
+
+
+    

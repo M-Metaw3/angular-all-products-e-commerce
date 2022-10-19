@@ -1,0 +1,97 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal">Take a Deep Look</h1>
+    <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.</p>
+    <!-- <a class="btn btn-outline-secondary" href="#">Coming soon</a> -->
+  </div>
+
+  <div *ngIf="productsData.id==selected_product_id" 
+        style="display:flex;
+               display: flex;
+               align-content: space-around;
+               justify-content: space-between;
+               flex-wrap: wrap;
+               align-items: baseline; 
+                background-color: #999999;
+                color: rgb(0, 0, 0);
+                border: 1px solid #f0f0f0;
+                border-radius: 25px;
+                padding: 40px;">   
+      
+      <h3>{{productsData.title}}</h3>
+      <h3>{{"onlyFor:" + productsData.price+"L.E"}}</h3>
+      <h3>{{"stock Number:"+ productsData.stock}}</h3>
+      <h3>{{productsData.description}}</h3>
+  </div>
+  
+
+   
+  <div class="main" style="justify-content:center;text-align:center;display:grid">
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">Look at this</h2>
+          <p class="lead">And an even wittier subheading.</p>
+        </div>
+        <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px;
+                                                           border-radius: 21px 21px 0 0;
+                                                          background-image: url({{productsData.images[1]}});
+                                                          background-size:contain;
+                                                           ">
+                                                           </div>
+      </div>
+      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+          <h2 class="display-5">Look at this</h2>
+          <p class="lead">And an even wittier subheading.</p>
+        </div>
+        <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px;
+                                                   border-radius: 21px 21px 0 0;
+                                                   background-image: url({{productsData.images[0]}});
+                                                   background-size:cover;
+                                                   ">
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+          <h2 class="display-5">Look at this</h2>
+          <p class="lead">And an even wittier subheading.</p>
+        </div>
+        <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; 
+                                                      border-radius: 21px 21px 0 0;
+                                                      background-image: url({{productsData.images[2]}});
+                                                      background-size:cover;
+                                                      "></div>
+      </div>
+      <div class="bg-primary mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">Look at this</h2>
+          <p class="lead">And an even wittier subheading.</p>
+        </div>
+        <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px;
+                                                        border-radius: 21px 21px 0 0;
+                                                        background-image: url({{productsData.images[3]}});
+                                                        background-size:cover;
+                                                        "></div>
+      </div>
+    </div>
+  </div>      
+ 
+</div>
+
+
+
+
+
+<footer class="container py-5 ">
+  <div class="row navbar navbar-dark">
+    <div class="col-4 col-md">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+      <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+    </div>
+    </div>
+</footer>

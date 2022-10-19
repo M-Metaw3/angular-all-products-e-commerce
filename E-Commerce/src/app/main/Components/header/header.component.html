@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home" routerLinkActive="active" >E-Commerce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarToggle" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <ul class="d-flex   mb-2 mb-lg-0 me-auto  "> 
+          <li class="btn btn-dark "> 
+          <a routerLink="/home" routerLinkActive="active" class="nav-link active" aria-current="page" >
+            <div>
+              <i class="fas fa-home fa-lg "></i>
+            </div>
+            Home
+          </a>
+        </li>
+             <!-- <li class="nav-item">
+            <a routerLink="/products/product" routerLinkActive="active" class="nav-link active">Products</a>
+          </li> -->
+          
+          <!-- <li class="nav-item">
+            <a routerLink="/payment" routerLinkActive="active" class="nav-link active"  >check-out</a>
+         </li> -->
+          
+          
+        </ul>
+        <ul class="d-flex   mb-2 mb-lg-0">
+          <li class=" d-flex align-items-center" *ngIf="user">
+            <small class="mx-1 text-light " style="font-size: 30px; " >Welcome {{getUserName()}}</small>
+           </li>
+          <li class="btn btn-light d-flex align-items-center" *ngIf="user">
+            
+            <button (click)="logout()" routerLinkActive="active" class="nav-link active btn-logout" >Logout</button>
+          </li>
+          <li class="btn btn-light " *ngIf="!user">
+            <a routerLink="/auth/login" routerLinkActive="active" class="nav-link active" >Login</a>
+          </li>
+          <li class="btn btn-light ms-2" *ngIf="!user"> 
+            <a routerLink="/auth/register" routerLinkActive="active" class="nav-link active">Sign Up</a>
+          </li>
+          <li class="btn btn-light ms-2">
+            <a routerLink="/cart" routerLinkActive="active" class="nav-link">
+              <div>
+              <i class="fas fa-shopping-cart"></i>
+                            <span  class="cartSize badge" style="color:rgb(255, 136, 0) ;font-size: 15px;" >{{cartlengt}}</span>
+
+            </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  

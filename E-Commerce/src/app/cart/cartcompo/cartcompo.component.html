@@ -1,0 +1,59 @@
+<h1 style="width: 50%; margin: auto; border-radius: 10px; background-color: rgb(255, 187, 0); color:rgb(221, 206, 206);text-align: center; margin-top: 5px; box-shadow: 5px 5px 50px rgb(255, 187, 0) ; text-align: center">your cart is <span style="color: rgb(253, 253, 253); text-shadow: 5px 5px 5px grey;  "> {{getcartarr.length}}</span> product</h1>
+<table class="table table-borderless" style="margin: 5px; border-radius: 10px;">
+    <thead style="background-color: rgb(255, 136, 0); margin: 1px; color: rgb(255, 255, 255);border-radius: 10px;text-shadow: 5px 5px 5px grey; ">
+      <tr>
+        <th scope="col">number</th>
+
+        <th scope="col">quantity</th>
+        <th scope="col">image</th>
+        <th scope="col">Rating</th>
+
+        <th scope="col">price</th>
+        <th scope="col">total </th>
+        
+        <th scope="col">stock</th>
+        <th scope="col">stock count</th>
+
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+    <tbody  style="width: 100%;">
+      <tr *ngFor="let item of getcartarr , index as i"  class="bodyy">
+
+        <td><h6>{{i+1}} </h6> </td>
+
+        <td> <div> <input style="border: none; text-align: center; width: 50%; background-color: rgb(255, 136, 0); border-radius: 5px;"  (change)="inp(i,$event)" (keydown)="inp(i,$event)"  (change)=" getcardtotlal()"  type="number" min="0" value="1"></div>
+        </td> 
+        
+
+       
+        
+        <td><img style="height: 70px;" [src]="item.thumbnail"></td>
+        <td> {{item.rating}}</td>
+        
+        <td><h6 style="color: blue;">{{item.price +"  L E"}}</h6> </td>
+        <td><h6 style="color: blue;">{{amount[i] }} </h6> </td>
+        
+      
+      
+        <td><h6 >{{stock[i]}}</h6></td>
+        <td><h6 >{{item.stock}}</h6></td>
+        <td class="btn" style="background-color: red;color: aliceblue; "  (click)="deleteproduct(i)">Delete </td>
+
+       
+      
+      </tr>
+      
+      
+    </tbody>
+  </table>
+  <div class="tot">
+<h1>total price: <span style="color: blue;"> {{totalnumber}} L E</span></h1>
+<button class="btn2"routerLink="/payment">Buy</button>
+<button class="btn1" (click)="clearproduct()">delete all</button>
+</div>
+
+
+
+
+

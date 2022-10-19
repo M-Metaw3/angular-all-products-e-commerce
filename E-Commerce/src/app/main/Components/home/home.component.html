@@ -1,0 +1,60 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="carouselInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active h-90" data-bs-interval="5000">
+                        <img src="assets/bg/ecommerce.jpg" class="d-block w-100 " alt="..." height="450">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img src="assets/bg/fashion.png" class="d-block w-100 " alt="..." height="450">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img src="assets/bg/Electronics.jpg" class="d-block w-100 " alt="..." height="450">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon text-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="row text-center">
+    
+
+ <div class="col-4" *ngFor="let product of productalll , index as i">
+    <div class="card border-info mb-3" style="width: 18rem;margin: 10px auto; box-shadow: 5px 5px 5px grey;">
+        <a href="products/product-list"><img src={{product.images[0]}} width="18rem" height="200"
+                class="card-img-top" alt="..."></a>
+
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">Price: {{product.price +" L E"}}</p>
+            <p class="card-text">Discount:{{product.discountPercentage/100|percent}}</p>
+
+            <div class="card-body" style="display: flex;flex-direction: column;">
+                <button class="btn btn-primary" (click)="goToProductDescription(product.id)">show
+                    decription</button>
+                <button style="margin: 5px; " class="btn btn-primary" (click)='cartlocalstorage(product)'
+                    *ngIf="show!==i" (click)="display(i)">Add to cart </button>
+                <button
+                    style="color:red ;margin: 5px; border: none; background-color: chocolate; padding: 6px; border-radius: 5px;"
+                    *ngIf="show==i">successfull added </button>
+
+            </div>
+        </div>
+    </div>
+</div> 
+</div>
